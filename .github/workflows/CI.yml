@@ -24,7 +24,7 @@ jobs:
 
       - name: Authenticate clasp
         run: |
-          echo ${{ secrets.GOOGLE_SERVICE_ACCOUNT_KEY }} > service-account-key.json
+          cat ${{ secrets.GOOGLE_SERVICE_ACCOUNT_KEY }} > service-account-key.json
           clasp login --creds service-account-key.json
           
       - name: Push to Google Apps Script
