@@ -3,9 +3,5 @@
   "dependencies": {
   },
   "exceptionLogging": "STACKDRIVER",
-  "runtimeVersion": "V8",
-  "oauthScopes": [
-    "https://www.googleapis.com/auth/script.webapp.deploy",
-    "https://www.googleapis.com/auth/drive"
-  ]
+  "runtimeVersion": "V8"
 }
