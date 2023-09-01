@@ -23,7 +23,7 @@ jobs:
         run: npm install -g @google/clasp
 
       - name: Authenticate clasp
-      - uses: daikikatsuragawa/clasp-action@v1.1.0
+        uses: daikikatsuragawa/clasp-action@v1.1.0
         with:
           # accessToken: ${{ secrets.ACCESS_TOKEN }}
           # idToken: ${{ secrets.ID_TOKEN }}
