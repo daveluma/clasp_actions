@@ -21,15 +21,10 @@ jobs:
       - name: Install clasp
         run: npm install -g @google/clasp
 
-      - name: Debug clasp
-        run: |
-          echo $CLASP_PASSWORD
-          clasp login --no-localhost || echo "Login failed!"
-
       - name: Authenticate clasp
         run: |
-          echo  ${{ secrets.CLASP_PASSWORD }} | clasp login --no-localhost
-          clasp setting scriptId ${{ secrets.SCRIPT_ID }}
+          echo "$GOOGLE_SERVICE_ACCOUNT_KEY" > service-account-key.json
+          clasp login --creds service-account-key.json
           
       - name: Push to Google Apps Script
         run: clasp push
