@@ -1,4 +1,3 @@
-# Push to Google App Script
 name: Push Google Apps Script
 
 on:
@@ -9,7 +8,7 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
-    
+
     steps:
       - name: Checkout Code
         uses: actions/checkout@v3
@@ -23,18 +22,9 @@ jobs:
         run: npm install -g @google/clasp
 
       - name: Authenticate clasp
-        uses: daikikatsuragawa/clasp-action@v1.1.0
-        with:
-          # accessToken: ${{ secrets.ACCESS_TOKEN }}
-          # idToken: ${{ secrets.ID_TOKEN }}
-          # refreshToken: ${{ secrets.REFRESH_TOKEN }}
-          clientId: ${{ secrets.CLIENT_ID }}
-          clientSecret: ${{ secrets.CLIENT_SECRET }}
-          scriptId: ${{ secrets.SCRIPT_ID }}
-          command: 'push'
-        # run: |
-        #   echo  ${{ secrets.CLASP_PASSWORD }} | clasp login --no-localhost
-        #   clasp setting scriptId ${{ secrets.SCRIPT_ID }}
-
+        run: |
+          echo  ${{ secrets.CLASP_PASSWORD }} | clasp login --no-localhost
+          clasp setting scriptId ${{ secrets.SCRIPT_ID }}
+          
       - name: Push to Google Apps Script
         run: clasp push
